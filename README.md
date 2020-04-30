@@ -34,7 +34,7 @@ docker run \
 如果使用当前目录存储所有数据，直接产出编译产品。如果`.config`文件为空，运行docker期间会打开`make menuconfig`界面配置。
 
 ```
-docker run --rm -it --name lede \
+docker run --rm -it -d --name lede \
   -v $(pwd)/lede_new:/lede \
   -v $(pwd)/x86.config:/.config \
   -v $(pwd)/bin:/lede/bin \
@@ -80,7 +80,7 @@ docker run --rm -it --name lede \
 默认执行的make是单线程的，出问题容易追踪。以下自动使用多线程编译 
 
 ```
-docker run --rm -it --name lede \
+docker run --rm -it -d --name lede \
   -v $(pwd)/lede_new:/lede \
   -v $(pwd)/x86.config:/.config \
   -v $(pwd)/bin:/lede/bin \
